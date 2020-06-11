@@ -14,6 +14,7 @@ export default async function main() {
     console.log(`Workspace run submitted succesfully: https://app.terraform.io/app/${org}/workspaces/${workspace}/runs/${id}`);
     core.setOutput("runId", id);
   } catch (error) {
+    core.error(`Error ${error}, action may still succeed though`)
     core.setFailed(error.message);
   }
 }
